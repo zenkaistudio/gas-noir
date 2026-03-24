@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gas Noir Digital — Black owned digital production studio. Brand films, reels, photography, creative direction. Toronto." />
+  <title>Gas Noir Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=VT323&family=Share+Tech+Mono&family=Playfair+Display:wght@900&family=Bebas+Neue&family=Dancing+Script:wght@700&family=Oswald:wght@700&family=Abril+Fatface&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════
+       LOADER — jeen-yuhs style
+  ═══════════════════════════ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-panel loader-panel-top"></div>
+    <div class="loader-panel loader-panel-bottom"></div>
+    <div class="loader-scanlines"></div>
+    <div class="loader-burn"></div>
+  <!-- Centered font-cycling brand name -->
+  <div class="loader-brand-cycle" id="loaderBrandCycle">Gas Noir</div>
+
+    <div class="loader-content">
+      <div class="loader-icon-wrap">
+        <img src="assets/gn-icon.png" alt="GN" class="loader-icon" />
+      </div>
+      <div class="loader-meta">
+        <span class="loader-season">GN DIGITAL — PRODUCTION STUDIO</span>
+        <span class="loader-divider">|</span>
+        <span class="loader-status" id="loaderStatus">INITIALIZING</span>
+      </div>
+      <div class="loader-counter-wrap">
+        <div class="loader-counter" id="loaderCounter">000</div>
+        <div class="loader-counter-label">%</div>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill" id="loaderBarFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color burn overlay (persistent cinematic tint) -->
+  <div class="color-burn" aria-hidden="true"></div>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Scan lines (persistent) -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════
+       NAVIGATION
+  ═══════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Gas Noir" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/services/">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/book" class="nav-cta">Book a Call</a>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="/services/">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/book" class="mobile-nav-cta">Book a Call</a>
+  </div>
+
+  <!-- ═══════════════════════════
+       HERO
+  ═══════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true">
+      <canvas id="hero3dCanvas"></canvas>
+    </div>
+    <div class="letterbox-top" aria-hidden="true"></div>
+    <div class="letterbox-bottom" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Black Owned &nbsp;·&nbsp; Digital Studio &nbsp;·&nbsp; Toronto</p>
+      <h1 class="hero-title">
+        <div class="line-wrap"><span class="line line-digital">Gas Noir</span></div>
+      </h1>
+      <p class="hero-sub">We produce content that moves brands forward.</p>
+      <div class="hero-cta-group">
+        <a href="#work" class="btn-primary">See Our Work</a>
+        <a href="#about" class="btn-ghost">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">1:1</span><span class="hero-stat-label">Every Project</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="hero-stat-num">BLK</span><span class="hero-stat-label">Owned</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="hero-stat-num">YYZ</span><span class="hero-stat-label">Toronto</span></div>
+      </div>
+      <div class="hero-scroll-line" aria-hidden="true"></div>
+    </div>
+
+    <!-- Large wordmark — basement.studio style -->
+    <div class="hero-wordmark" aria-hidden="true">DIGITAL</div>
+  </section>
+
+  <!-- ═══════════════════════════
+       MARQUEE
+  ═══════════════════════════ -->
+  <div class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Gas Noir Digital <span class="dot"></span></span>
+      <span class="marquee-item">Brand Films <span class="dot"></span></span>
+      <span class="marquee-item">Black Owned <span class="dot"></span></span>
+      <span class="marquee-item">Reels &amp; Social <span class="dot"></span></span>
+      <span class="marquee-item">Photography <span class="dot"></span></span>
+      <span class="marquee-item">Toronto <span class="dot"></span></span>
+      <span class="marquee-item">Creative Direction <span class="dot"></span></span>
+      <span class="marquee-item">Web &amp; Automation <span class="dot"></span></span>
+      <span class="marquee-item">Gas Noir Digital <span class="dot"></span></span>
+      <span class="marquee-item">Brand Films <span class="dot"></span></span>
+      <span class="marquee-item">Black Owned <span class="dot"></span></span>
+      <span class="marquee-item">Reels &amp; Social <span class="dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       LOGO SCROLL SHOWCASE
+  ═══════════════════════════ -->
+  <section class="lss-section">
+    <div class="lss-sticky">
+
+      <!-- Background logo sits behind everything -->
+      <div class="lss-logo-wrap" aria-hidden="true">
+        <img src="assets/logo.png" alt="" class="lss-logo-img" />
+      </div>
+
+      <!-- Cards scroll upward over the logo -->
+      <div class="lss-cards-track" id="lssTrack">
+
+        <div class="lss-card">
+          <!-- Replace with: <img class="lss-card-img" src="assets/product-1.jpg" alt="Tracksuit"> -->
+          <div class="lss-card-bg lss-bg-1"></div>
+          <span class="lss-card-label">Brand Films</span>
+        </div>
+
+        <div class="lss-card">
+          <!-- Replace with: <img class="lss-card-img" src="assets/reel-2.jpg" alt="Reels & Social"> -->
+          <div class="lss-card-bg lss-bg-2"></div>
+          <span class="lss-card-label">Reels &amp; Social</span>
+        </div>
+
+        <div class="lss-card">
+          <!-- Replace with: <img class="lss-card-img" src="assets/photo-3.jpg" alt="Photography"> -->
+          <div class="lss-card-bg lss-bg-3"></div>
+          <span class="lss-card-label">Photography</span>
+        </div>
+
+        <div class="lss-card">
+          <!-- Replace with: <img class="lss-card-img" src="assets/creative-4.jpg" alt="Creative Direction"> -->
+          <div class="lss-card-bg lss-bg-4"></div>
+          <span class="lss-card-label">Creative Direction</span>
+        </div>
+
+        <div class="lss-card">
+          <!-- Replace with: <img class="lss-card-img" src="assets/web-5.jpg" alt="Web & AI"> -->
+          <div class="lss-card-bg lss-bg-5"></div>
+          <span class="lss-card-label">Web &amp; AI</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       COLLECTIONS
+  ═══════════════════════════ -->
+  <div id="work">
+    <div class="collections">
+      <div class="collections-header">
+        <div>
+          <div class="section-label reveal">Selected Work</div>
+          <h2 class="collections-title reveal">What We<br><em>Build</em></h2>
+        </div>
+        <a href="#contact" class="collections-link reveal">Start a Project</a>
+      </div>
+
+      <div class="collections-grid">
+
+        <!-- Card 1 — swap div.card-placeholder for img.card-image when ready -->
+        <article class="collection-card">
+          <div class="card-placeholder cp-1">
+            <span class="card-placeholder-num">01</span>
+            <div class="cp-crosshair" aria-hidden="true"></div>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-tag">Film</p>
+            <h3 class="card-name">Brand<br>Films</h3>
+            <p class="card-price">Inquire →</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="collection-card">
+          <div class="card-placeholder cp-2">
+            <span class="card-placeholder-num">02</span>
+            <div class="cp-crosshair" aria-hidden="true"></div>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-tag">Social</p>
+            <h3 class="card-name">Reels &amp;<br>Content</h3>
+            <p class="card-price">Inquire →</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="collection-card">
+          <div class="card-placeholder cp-3">
+            <span class="card-placeholder-num">03</span>
+            <div class="cp-crosshair" aria-hidden="true"></div>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-tag">Photography</p>
+            <h3 class="card-name">Editorial<br>Shoots</h3>
+            <p class="card-price">Inquire →</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="collection-card">
+          <div class="card-placeholder cp-4">
+            <span class="card-placeholder-num">04</span>
+            <div class="cp-crosshair" aria-hidden="true"></div>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-tag">Direction</p>
+            <h3 class="card-name">Creative<br>Direction</h3>
+            <p class="card-price">Inquire →</p>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="collection-card">
+          <div class="card-placeholder cp-5">
+            <span class="card-placeholder-num">05</span>
+            <div class="cp-crosshair" aria-hidden="true"></div>
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <p class="card-tag">Digital</p>
+            <h3 class="card-name">Web &amp;<br>Automation</h3>
+            <p class="card-price">Inquire →</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       CINEMATIC BAND
+  ═══════════════════════════ -->
+  <div class="cinematic-band" aria-hidden="true">
+    <div class="cinematic-bg"></div>
+    <div class="cinematic-overlay"></div>
+    <div class="cinematic-content">
+      <p class="cinematic-label reveal">Every Frame. Every Shot. Every Drop.</p>
+      <h2 class="cinematic-headline reveal">
+        Content that moves —<br>
+        <span>not just people.</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       EDITORIAL
+  ═══════════════════════════ -->
+  <section id="editorial">
+    <div class="editorial-inner">
+
+      <div class="editorial-visual reveal-left">
+        <!-- Replace with: <img class="editorial-main-img" src="assets/editorial-1.jpg" alt="Gas Noir Editorial"> -->
+        <div class="editorial-placeholder">
+          <div class="ep-monogram" aria-hidden="true">GN</div>
+          <div class="ep-grid" aria-hidden="true"></div>
+          <div class="ep-label" aria-hidden="true">GN DIGITAL — PRODUCTION</div>
+        </div>
+        <div class="editorial-accent" aria-hidden="true"></div>
+      </div>
+
+      <div class="editorial-content reveal-right">
+        <div class="section-label">Our Approach</div>
+        <h2 class="editorial-quote">
+          If it doesn't make<br>
+          <em>you feel something —</em><br>
+          it doesn't make the cut.
+        </h2>
+        <p class="editorial-body">
+          Gas Noir Digital is a Black-owned production studio built on craft and intentionality.
+          We don't do generic. Every project is custom — built to move your audience and grow your brand.
+        </p>
+        <p class="editorial-body">
+          From concept to delivery, we handle brand films, editorial photography, social content,
+          creative direction, and web. One studio. Every output.
+        </p>
+        <div class="editorial-cta-group">
+          <a href="#contact" class="btn-primary">Start a Project →</a>
+          <a href="#about" class="btn-secondary">Our Story →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       ETHOS / ABOUT
+  ═══════════════════════════ -->
+  <section class="ethos" id="about">
+    <div class="ethos-inner">
+
+      <div class="ethos-sidebar reveal-left">
+        <div class="ethos-label">About</div>
+        <h2 class="ethos-side-title">The<br>GN<br>Digital<br>Ethos</h2>
+      </div>
+
+      <div class="ethos-content">
+        <p class="ethos-large-text reveal">
+          We build digital experiences for brands that refuse to be average.
+        </p>
+        <p class="ethos-body reveal">
+          Gas Noir Digital is a Black-owned creative production studio based in Toronto.
+          We specialise in brand films, editorial photography, reels and social content,
+          creative direction, and web — working with founders, brands, and artists who know
+          that how you show up online is everything.
+        </p>
+        <p class="ethos-body reveal">
+          We don't take on every project. We take on the right ones — and we go all the way in.
+          Every deliverable is treated like it's the only one that matters, because to your audience, it is.
+        </p>
+        <p class="ethos-body reveal">
+          Based in Sauga. Built for the world. Black owned and operating at the highest level.
+        </p>
+
+        <div class="ethos-stats reveal">
+          <div>
+            <div class="stat-number">1:1</div>
+            <div class="stat-label">Every Project</div>
+          </div>
+          <div>
+            <div class="stat-number">BLK</div>
+            <div class="stat-label">Owned &amp; Operated</div>
+          </div>
+          <div>
+            <div class="stat-number">YYZ</div>
+            <div class="stat-label">Toronto Based</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       INSTAGRAM
+  ═══════════════════════════ -->
+  <section class="ig-section">
+    <div class="ig-inner">
+      <div class="ig-header reveal">
+        <div class="section-label">Follow Along</div>
+        <h2 class="ig-title"><a href="https://www.instagram.com/gas.noir/" target="_blank" rel="noopener">@gas.noir</a></h2>
+        <p class="ig-sub">Behind the lens. Behind the brand.</p>
+      </div>
+      <div class="ig-grid reveal">
+        <div class="ig-cell ig-c1"></div>
+        <div class="ig-cell ig-c2"></div>
+        <div class="ig-cell ig-c3"></div>
+        <div class="ig-cell ig-c4"></div>
+        <div class="ig-cell ig-c5"></div>
+        <div class="ig-cell ig-c6"></div>
+      </div>
+      <div class="ig-footer reveal">
+        <a href="https://www.instagram.com/gas.noir/" target="_blank" rel="noopener" class="btn-primary">Follow on Instagram →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       NEWSLETTER
+  ═══════════════════════════ -->
+  <section class="newsletter" id="contact">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title reveal">Let's<br>Build.</h2>
+      <p class="newsletter-sub reveal">
+        Ready to move your brand forward? Drop your email and we'll reach out.
+      </p>
+      <form class="newsletter-form reveal" onsubmit="return false;">
+        <input
+          class="newsletter-input"
+          type="email"
+          placeholder="Your Email"
+          aria-label="Email address"
+          required
+        />
+        <button class="newsletter-btn" type="submit">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+       FOOTER
+  ═══════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <div>
+          <div class="footer-brand-name"><img src="assets/logo.png" alt="Gas Noir" class="footer-logo-img" /></div>
+          <p class="footer-tagline">
+            Black owned digital production studio. Brand films, reels, photography &amp; web. Toronto to the world.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TK</a>
+            <a href="#" aria-label="Twitter/X">X</a>
+            <a href="#" aria-label="Pinterest">PT</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#work">Brand Films</a></li>
+            <li><a href="#work">Reels &amp; Social</a></li>
+            <li><a href="#work">Photography</a></li>
+            <li><a href="#work">Creative Direction</a></li>
+            <li><a href="#work">Web &amp; Automation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#editorial">Our Approach</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Work With Us</div>
+          <ul class="footer-links">
+            <li><a href="#contact">Start a Project</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Process</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="https://www.instagram.com/gas.noir/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2026 <span>Gas Noir Digital</span>. Black Owned. All rights reserved.
+        </p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
