@@ -1915,9 +1915,14 @@ footer {
 
 /* ─── FOOTER LOGO IMAGE ─── */
 .footer-logo-img {
-  height: 55px;
+  height: 60px;
   width: auto;
   display: block;
-  filter: brightness(0) saturate(100%) invert(51%) sepia(35%) saturate(567%) hue-rotate(172deg) brightness(95%) contrast(90%);
+  border-radius: 10px;
   margin-bottom: 1.25rem;
+}
+
+.footer-brand-name a {
+  text-decoration: none;
+  display: inline-block;
 }
