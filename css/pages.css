@@ -979,6 +979,62 @@ body.page-inner {
   line-height: 1.8;
 }
 
+/* Honour the hidden attribute even where a class sets display. */
+[hidden] { display: none !important; }
+
+/* Booking request form */
+.booking-form { width: 100%; max-width: 460px; text-align: left; }
+.booking-form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: var(--light);
+  margin-bottom: 8px;
+}
+.booking-form-sub,
+.booking-result-body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(250,249,246,0.72);
+  margin: 0 0 28px;
+}
+.form-note {
+  font-family: 'VT323', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.6);
+  text-align: center;
+  margin: 14px 0 0;
+}
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 600px) {
+  /* 40px of card padding left a 256px form on a 375px phone. */
+  .booking-embed-wrap { padding: 28px 18px; min-height: 0; }
+}
+.booking-form :focus-visible,
+.booking-result :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.booking-form button[disabled] { opacity: 0.6; cursor: default; }
+.booking-result { width: 100%; max-width: 460px; text-align: center; }
+.booking-result-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: var(--light);
+  margin-bottom: 12px;
+}
+.form-status {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(250,249,246,0.8);
+  margin-top: 14px;
+}
+
 /* ─── FREE RESOURCE / OPT-IN ─── */
 .optin-hero {
   display: grid;

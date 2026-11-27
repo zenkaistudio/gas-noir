@@ -1009,6 +1009,36 @@
     initSmoothScroll();
     initCardTilt();
     initCollectionReveal();
+    initNewsletter();
   });
+
+  /* ─── NEWSLETTER ───────────────────────────────────────────────
+     Was onsubmit="return false;" — the field collected an address
+     and threw it away. Hands off to a real email until a form
+     backend URL is set below.
+  ──────────────────────────────────────────────────────────────── */
+  function initNewsletter() {
+    const EMAIL    = 'hello@gasnoir.digital';
+    const FORM_URL = '';   // Google Form — newsletter/lead capture
+
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+      form.removeAttribute('onsubmit');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const input = form.querySelector('input[type="email"]');
+        if (!input || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)) {
+          if (input) input.style.borderColor = '#e5484d';
+          return;
+        }
+        input.style.borderColor = '';
+
+        if (FORM_URL) { window.location.href = FORM_URL; return; }
+
+        window.location.href = `mailto:${EMAIL}`
+          + `?subject=${encodeURIComponent('Newsletter signup — gasnoir.digital')}`
+          + `&body=${encodeURIComponent('Please add me to the list: ' + input.value)}`;
+      });
+    });
+  }
 
 })();

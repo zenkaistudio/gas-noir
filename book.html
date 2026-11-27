@@ -81,14 +81,53 @@
         </div>
       </div>
       <div class="reveal-right">
-        <div class="booking-embed-wrap">
-          <!-- Replace this with your Calendly or GHL embed code -->
-          <!-- e.g. <div class="calendly-inline-widget" data-url="https://calendly.com/gasnoir/discovery" ...></div> -->
-          <div>
+        <div class="booking-embed-wrap js-booking">
+          <!-- In-house request form. Shown by /js/pages.js only when capture is configured;
+               if the script fails for any reason the email fallback below stays visible. -->
+          <form class="js-booking-form booking-form" novalidate hidden>
+            <div class="booking-form-title">Request a 30-minute strategy call</div>
+            <p class="booking-form-sub">Tell us what you're working on. We reply by email with a time.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="book-name">Name</label>
+                <input class="form-input" type="text" id="book-name" name="name" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="book-email">Email</label>
+                <input class="form-input" type="email" id="book-email" name="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-business">Business or Instagram handle</label>
+              <input class="form-input" type="text" id="book-business" name="business" autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-times">Two or three times that suit you this week</label>
+              <input class="form-input" type="text" id="book-times" name="times" placeholder="e.g. Tue after 2pm, Thu morning" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="book-message">What are you working on?</label>
+              <textarea class="form-textarea" id="book-message" name="message" style="min-height:120px;" required></textarea>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="book-website">Leave this empty</label>
+              <input type="text" id="book-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;">Request a Call →</button>
+            <p class="form-note">We reply within one business day.</p>
+          </form>
+          <div class="js-booking-result booking-result" role="status" aria-live="polite" hidden></div>
+          <div class="js-booking-fallback">
             <div class="booking-placeholder-num">30</div>
-            <div class="booking-placeholder-text">Calendly or GoHighLevel booking embed goes here.<br>Replace with your scheduling link.</div>
-            <div style="margin-top:2rem;">
-              <a href="/contact" class="btn-ghost">Prefer Email? Contact Us Instead</a>
+            <div class="booking-placeholder-text">
+              <strong>A free 30-minute strategy call.</strong><br>
+              Email us two or three times that suit you this week and we'll
+              confirm within one business day.
+            </div>
+            <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+              <a href="mailto:hello@gasnoir.digital?subject=Booking%20a%2030-minute%20strategy%20call&body=Hi%20Gas%20Noir%2C%0A%0AI%27d%20like%20to%20book%20a%2030-minute%20strategy%20call.%0A%0ATimes%20that%20work%20for%20me%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AWhat%20I%27m%20working%20on%3A%0A%0A"
+                 class="btn-primary">Email to Book →</a>
+              <a href="https://www.instagram.com/gas.noir/" target="_blank" rel="noopener" class="btn-ghost">Or DM us on Instagram</a>
             </div>
           </div>
         </div>
@@ -114,9 +153,6 @@
           <p class="footer-tagline">Black owned digital production studio. Brand films, reels, photography &amp; web. Toronto to the world.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/gas.noir/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="TikTok">TK</a>
-            <a href="#" aria-label="Twitter/X">X</a>
-            <a href="#" aria-label="Pinterest">PT</a>
           </div>
         </div>
         <div>
@@ -160,6 +196,7 @@
     </div>
   </footer>
 
+  <script src="/js/capture.js"></script>
   <script src="/js/pages.js"></script>
 </body>
 </html>
