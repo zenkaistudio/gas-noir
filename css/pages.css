@@ -979,6 +979,32 @@ body.page-inner {
   line-height: 1.8;
 }
 
+/* Google Calendar booking page embed (2026-11-27). Full-width section on /book.
+   Google stacks its layout under ~1000px of frame width (measured ~1580px tall) and goes
+   side by side at 1000px+ (~885px tall); the container query sizes the frame to match. */
+.booking-calendar { container-type: inline-size; text-align: left; }
+.booking-calendar-sub { max-width: 720px; margin-top: 1rem; }
+.booking-calendar-frame {
+  display: block;
+  width: 100%;
+  height: 1680px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;   /* until it loads: a blocked or slow embed shows the dark section, not a white slab */
+  margin-top: 2rem;
+}
+.booking-calendar-frame.is-loaded { background: #fff; }   /* Google's page has no background of its own */
+@container (min-width: 1000px) {
+  .booking-calendar-frame { height: 920px; }
+}
+.booking-calendar-link { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.booking-calendar-link:hover { color: var(--light); }
+h3.booking-form-title { margin-top: 0; font-weight: 400; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 /* Honour the hidden attribute even where a class sets display. */
 [hidden] { display: none !important; }
 

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=VT323&family=Bebas+Neue&family=Abril+Fatface&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/pages.css" />
+  <link rel="stylesheet" href="/css/pages.css?v=20261127" />
 </head>
 <body class="page-inner">
 
@@ -50,6 +50,20 @@
     <div class="page-hero-wordmark" aria-hidden="true">BOOK</div>
   </section>
 
+  <!-- PICK A TIME: Google Calendar booking page, full width (Google switches to its side-by-side
+       layout at 1000px+). Jerome's "Strategy Call - Gas Noir Digital" schedule, 2026-11-27.
+       Settings + links: tools/booking-alert/booking-page.md in the vault. -->
+  <section class="section-wrap" id="pick-a-time">
+    <div class="section-inner-wide booking-calendar">
+      <span class="section-eyebrow">Book Online</span>
+      <h2 class="section-title-md">Pick a <em>Time</em></h2>
+      <p class="booking-form-sub booking-calendar-sub">Weekdays, 10am to 5pm Toronto time. You'll get a Google Meet link by email, or tell us in the form if you'd rather take a phone call. If the calendar doesn't show, <a class="booking-calendar-link" href="https://calendar.app.google/zCoqcy9W5KQsrB2s7" target="_blank" rel="noopener">open the booking page in a new tab<span class="sr-only"> (opens in a new tab)</span></a> or use the request form below.</p>
+      <iframe class="booking-calendar-frame"
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0vq5vkNNnv52xdD_PBZOolNtnM3EkWI2NjDwDuQ96an9vWf4Ur_4d8l4mnPh5HjKK9bU5g4ybf?gv=true"
+              title="Book a 30-minute strategy call with Gas Noir Digital" loading="lazy"></iframe>
+    </div>
+  </section>
+
   <!-- WHAT TO EXPECT -->
   <section class="section-wrap section-alt">
     <div class="section-inner-wide two-col" style="align-items:start;">
@@ -82,11 +96,11 @@
       </div>
       <div class="reveal-right">
         <div class="booking-embed-wrap js-booking">
-          <!-- In-house request form. Shown by /js/pages.js only when capture is configured;
+          <!-- Fallback: in-house request form. Shown by /js/pages.js only when capture is configured;
                if the script fails for any reason the email fallback below stays visible. -->
           <form class="js-booking-form booking-form" novalidate hidden>
-            <div class="booking-form-title">Request a 30-minute strategy call</div>
-            <p class="booking-form-sub">Tell us what you're working on. We reply by email with a time.</p>
+            <h3 class="booking-form-title">None of these times work?</h3>
+            <p class="booking-form-sub">Tell us what you're working on and when suits you.</p>
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="book-name">Name</label>
@@ -113,7 +127,7 @@
               <label for="book-website">Leave this empty</label>
               <input type="text" id="book-website" name="website" tabindex="-1" autocomplete="off" />
             </div>
-            <button type="submit" class="btn-primary" style="width:100%;">Request a Call →</button>
+            <button type="submit" class="btn-primary" style="width:100%;">Send a Request <span aria-hidden="true">→</span></button>
             <p class="form-note">We reply within one business day.</p>
           </form>
           <div class="js-booking-result booking-result" role="status" aria-live="polite" hidden></div>
@@ -196,7 +210,7 @@
     </div>
   </footer>
 
-  <script src="/js/capture.js"></script>
-  <script src="/js/pages.js"></script>
+  <script src="/js/capture.js?v=20261127"></script>
+  <script src="/js/pages.js?v=20261127"></script>
 </body>
 </html>

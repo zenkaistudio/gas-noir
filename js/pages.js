@@ -6,9 +6,15 @@
 (function () {
   'use strict';
 
+  /* Booking calendar embed: white backing only once Google's page has actually loaded. */
+  document.querySelectorAll('.booking-calendar-frame').forEach(f => {
+    f.addEventListener('load', () => f.classList.add('is-loaded'));
+  });
+
   /* ─── SITE CONFIG ───────────────────────────────────────────────
-     Booking and contact requests go to our own Supabase table
-     (decided 2026-10-27: no third-party form tools, no scheduler embed).
+     Primary booking = Google Calendar booking page embedded on /book
+     (2026-11-27; vault tools/booking-alert/booking-page.md). This table
+     holds the fallback request form, the contact form and opt-ins.
      The key below is a publishable key: it can insert a request and
      nothing else. Empty either value and every form falls back to a
      real email hand-off — never a fake "sent" confirmation.
@@ -108,6 +114,12 @@
     document.addEventListener('mouseleave', () => {
       cursor.style.opacity = '0';
       ring.style.opacity   = '0';
+    });
+
+    // The embedded Google booking page swallows mouse events: hide the custom cursor over it.
+    document.querySelectorAll('iframe').forEach(f => {
+      f.addEventListener('mouseenter', () => { cursor.style.opacity = '0'; ring.style.opacity = '0'; });
+      f.addEventListener('mouseleave', () => { cursor.style.opacity = '1'; ring.style.opacity = '1'; });
     });
 
     const hoverTargets = 'a, button, .service-hub-card, .case-card, .blog-card, .resource-card, .bio-link, .filter-btn, .faq-question';
