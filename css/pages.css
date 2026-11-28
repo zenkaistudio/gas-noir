@@ -980,8 +980,8 @@ body.page-inner {
 }
 
 /* Google Calendar booking page embed (2026-11-27). Full-width section on /book.
-   Google stacks its layout under ~1000px of frame width (measured ~1580px tall) and goes
-   side by side at 1000px+ (~885px tall); the container query sizes the frame to match. */
+   Google stacks its layout below ~600px of frame width (~1580px tall) and goes side by side
+   above it (~700-885px tall); the container query sizes the frame to match. */
 .booking-calendar { container-type: inline-size; text-align: left; }
 .booking-calendar-sub { max-width: 720px; margin-top: 1rem; }
 .booking-calendar-frame {
@@ -994,8 +994,8 @@ body.page-inner {
   margin-top: 2rem;
 }
 .booking-calendar-frame.is-loaded { background: #fff; }   /* Google's page has no background of its own */
-@container (min-width: 1000px) {
-  .booking-calendar-frame { height: 920px; }
+@container (min-width: 620px) {   /* measured live 2026-11-28: stacked at 560px, side by side at 640px */
+  .booking-calendar-frame { height: 960px; }
 }
 .booking-calendar-link { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .booking-calendar-link:hover { color: var(--light); }
